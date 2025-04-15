@@ -1,3 +1,4 @@
+```markdown
 # 🎫 Foresight Plus
 
 A modern, elegant, and responsive ticketing and support system built with **Flutter** and backed by
@@ -21,17 +22,53 @@ chart-based insights — all wrapped in a beautiful UI experience.
 
 ## 🛠️ Tech Stack
 
-| Frontend                      | Backend                       | Database  |
-|-------------------------------|-------------------------------|-----------|
-| Flutter                       | Firebase Auth                 | Firestore |
-| Dart                          | Firebase Functions (optional) |           |
-| Provider / Riverpod (if used) |                               |           |
+| Frontend     | Backend        | Database     |
+|--------------|----------------|--------------|
+| Flutter      | Firebase Auth  | Firestore    |
+| Dart         | Firebase Functions (optional) |  |
+| Provider / Riverpod (if used) |              |  |
 
 ---
 
 ## 🚀 Getting Started
 
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/yourusername/foresight_plus.git
-   cd foresight_plus
+### Install dependencies
+
+```bash
+flutter pub get
+```
+
+### Set up Firebase
+
+1. Create a Firebase project
+2. Add Android/iOS apps
+3. Download `google-services.json` / `GoogleService-Info.plist` and place them in the respective
+   directories
+4. Enable **Firestore**, **Authentication (Email/Password)**, and other required services
+
+### Run the app
+
+```bash
+flutter run
+```
+
+---
+
+## 📸 Screenshots
+
+Coming soon...
+
+---
+
+## 🙌 Credits
+
+Built with ❤️ by **Tahir**
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License — feel free to use it, improve it, or make it your
+own.
+
+```
