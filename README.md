@@ -1,5 +1,7 @@
-```markdown
 # 🎫 Foresight Plus
+![Flutter](https://img.shields.io/badge/Flutter-3.19-blue?logo=flutter)
+![Firebase](https://img.shields.io/badge/Firebase-Enabled-yellow?logo=firebase)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 A modern, elegant, and responsive ticketing and support system built with **Flutter** and backed by
 **Firebase**. Designed for seamless ticket submission, real-time status updates, and intuitive
@@ -56,7 +58,12 @@ flutter run
 
 ## 📸 Screenshots
 
-Coming soon...
+### 🏠 Home Screen
+![Home Screen](https://github.com/tahirdotdev-tdd/screenshots/blob/main/home.jpg)
+
+### 🌊 Splash Screen
+![Splash Screen](https://github.com/tahirdotdev-tdd/screenshots/blob/main/splash.jpg)
+
 
 ---
 
