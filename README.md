@@ -1,16 +1,37 @@
-# foresight_plus
+# 🎫 Foresight Plus
 
-A new Flutter project.
+A modern, elegant, and responsive ticketing and support system built with **Flutter** and backed by
+**Firebase**. Designed for seamless ticket submission, real-time status updates, and intuitive
+chart-based insights — all wrapped in a beautiful UI experience.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## ✨ Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🔐 **User Authentication** (Firebase Auth)
+- 📝 **Submit New Tickets**
+- 🧾 **View All Tickets**
+- 📊 **Visual Ticket Stats** (Pie Chart)
+- 💬 **Track Status in Real-Time**
+- 🌈 **Animated Splash Screen**
+- 🔄 **Smooth Page Transitions**
+- 📱 **Responsive Design** (Mobile-first)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Tech Stack
+
+| Frontend                      | Backend                       | Database  |
+|-------------------------------|-------------------------------|-----------|
+| Flutter                       | Firebase Auth                 | Firestore |
+| Dart                          | Firebase Functions (optional) |           |
+| Provider / Riverpod (if used) |                               |           |
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/yourusername/foresight_plus.git
+   cd foresight_plus
