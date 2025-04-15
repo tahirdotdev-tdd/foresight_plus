@@ -58,12 +58,11 @@ flutter run
 
 ## 📸 Screenshots
 
-### 🏠 Home Screen
-![Home Screen](https://github.com/tahirdotdev-tdd/screenshots/blob/main/home.jpg)
-
 ### 🌊 Splash Screen
 ![Splash Screen](https://github.com/tahirdotdev-tdd/screenshots/blob/main/splash.jpg)
 
+### 🏠 Home Screen
+![Home Screen](https://github.com/tahirdotdev-tdd/screenshots/blob/main/home.jpg)
 
 ---
 
