@@ -44,11 +44,31 @@ class _TicketButtonOneState extends State<TicketButtonOne>
       onTap: () {
         Navigator.push(
           context,
-          (MaterialPageRoute(
-            builder: (BuildContext context) {
-              return NewTicketScreen();
+          PageRouteBuilder(
+            transitionDuration: Duration(milliseconds: 400),
+            pageBuilder:
+                (context, animation, secondaryAnimation) => NewTicketScreen(),
+            transitionsBuilder: (
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            ) {
+              const begin = Offset(1.0, 0.0); // Slide from right
+              const end = Offset.zero;
+              const curve = Curves.ease;
+
+              var tween = Tween(
+                begin: begin,
+                end: end,
+              ).chain(CurveTween(curve: curve));
+
+              return SlideTransition(
+                position: animation.drive(tween),
+                child: child,
+              );
             },
-          )),
+          ),
         );
       },
       child: Container(

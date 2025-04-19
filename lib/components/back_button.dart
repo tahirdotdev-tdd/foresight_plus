@@ -5,7 +5,8 @@ class CustomBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
       child: Container(
         width: 40,
         height: 40,
@@ -23,7 +24,7 @@ class CustomBackButton extends StatelessWidget {
         ),
         child: Center(
           child: IconButton(
-            padding: EdgeInsets.zero, // Remove default padding
+            padding: EdgeInsets.zero,
             icon: Icon(Icons.arrow_back, size: 18, color: Color(0xFF344054)),
             onPressed: () {
               Navigator.pop(context);
