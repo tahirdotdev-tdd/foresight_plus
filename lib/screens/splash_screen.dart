@@ -79,10 +79,7 @@ class _SplashScreenState extends State<SplashScreen>
             left: 0,
             right: 0,
             bottom: 0,
-            child: SvgPicture.asset(
-              "lib/assets/images/screen_bcg.svg",
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset("lib/assets/images/bcg.png", fit: BoxFit.cover),
           ),
           Column(
             // mainAxisSize: MainAxisSize.max,
