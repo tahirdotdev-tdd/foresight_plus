@@ -3,13 +3,22 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foresight_plus/components/colors.dart';
 import 'package:foresight_plus/components/hero_cards.dart';
 import 'package:foresight_plus/components/overall_summary_widget.dart';
-import 'package:foresight_plus/components/ticket_button_two.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../components/ticket_button_one.dart';
+import '../components/ticket_button_two.dart';
+import 'all_tickets_screen.dart';
+import 'new_ticket_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  bool showDropdown = false;
 
   @override
   Widget build(BuildContext context) {
@@ -17,19 +26,60 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.all(10),
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(color: AppColors.bcg),
+              child: Align(
+                alignment: Alignment.center, // or center if you prefer
+                child: SizedBox(
+                  width: 150, // Try increasing from 15 to see it clearly
+                  height: 150,
+                  child: SvgPicture.asset(
+                    "lib/assets/images/logo.svg",
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
+              leading: Icon(Icons.new_label_outlined),
+              title: Text('New Ticket'),
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => NewTicketScreen()),
+                  ),
+            ),
+            ListTile(
+              leading: Icon(Icons.all_inbox_rounded),
+              title: Text('All Tickets'),
+              onTap:
+                  () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AllTicketsScreen()),
+                  ),
+            ),
+          ],
+        ),
+      ),
+
       body: Stack(
         children: [
-          // 🌄 Background SVG
           Positioned.fill(
             child: Image.asset("lib/assets/images/bcg1.png", fit: BoxFit.cover),
           ),
-
-          // 📦 Foreground content
           LayoutBuilder(
             builder: (context, constraints) {
               return Column(
                 children: [
-                  // 🧢 Header Section
                   Container(
                     padding: EdgeInsets.all(screenWidth * 0.03),
                     width: double.infinity,
@@ -47,13 +97,24 @@ class HomeScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              padding: EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color(0XFFEAECF5),
-                              ),
-                              child: Icon(Icons.menu, size: 20),
+                            Builder(
+                              builder:
+                                  (context) => GestureDetector(
+                                    onTap:
+                                        () => Scaffold.of(context).openDrawer(),
+                                    child: Container(
+                                      padding: EdgeInsets.all(8),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Color(0XFFEAECF5),
+                                      ),
+                                      child: Icon(
+                                        Icons.menu,
+                                        size: 20,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ),
                             ),
                             SvgPicture.asset(
                               'lib/assets/images/logo.svg',
@@ -61,25 +122,33 @@ class HomeScreen extends StatelessWidget {
                               height: 47,
                             ),
                             Stack(
+                              clipBehavior: Clip.none,
                               children: [
-                                Container(
-                                  width: 36,
-                                  height: 36,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      width: 1,
-                                      color: Colors.grey.withOpacity(0.5),
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      showDropdown = !showDropdown;
+                                    });
+                                  },
+                                  child: Container(
+                                    width: 36,
+                                    height: 36,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        width: 1,
+                                        color: Colors.grey.withOpacity(0.5),
+                                      ),
+                                      borderRadius: BorderRadius.circular(8),
+                                      color: Color(0XFFEAECF5),
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
-                                    color: Color(0XFFEAECF5),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    "UP",
-                                    style: TextStyle(
-                                      color: Color(0XFF667085),
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "UP",
+                                      style: TextStyle(
+                                        color: Color(0XFF667085),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -119,10 +188,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-
                   SizedBox(height: 15),
-
-                  // 📈 Overall Summary
                   Container(
                     padding: EdgeInsets.all(11.44),
                     margin: EdgeInsets.symmetric(
@@ -157,10 +223,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-
                   SizedBox(height: 12),
-
-                  // 📋 Categories Summary
                   Container(
                     padding: EdgeInsets.all(11.44),
                     margin: EdgeInsets.symmetric(
@@ -207,10 +270,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-
                   SizedBox(height: 15),
-
-                  // 🎟️ Ticket Buttons Footer
                   Container(
                     padding: EdgeInsets.all(12),
                     width: double.infinity,
@@ -239,6 +299,36 @@ class HomeScreen extends StatelessWidget {
               );
             },
           ),
+          // 👇 The dropdown is now outside the Column
+          if (showDropdown)
+            Positioned(
+              top: 100, // adjust the vertical position based on your design
+              right: 16, // position it right where you need
+              child: Container(
+                width: 120,
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.grey.shade300),
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 8,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Profile", style: TextStyle(fontSize: 12)),
+                    SizedBox(height: 5),
+                    Text("Logout", style: TextStyle(fontSize: 12)),
+                  ],
+                ),
+              ),
+            ),
         ],
       ),
     );

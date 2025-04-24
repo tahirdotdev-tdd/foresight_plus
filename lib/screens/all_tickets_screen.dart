@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:foresight_plus/components/back_button.dart';
 import 'package:foresight_plus/components/custom_tab_bar.dart';
 
 import '../components/colors.dart';
@@ -41,7 +42,7 @@ class AllTicketsScreen extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.all(screenWidth * 0.03),
                       width: double.infinity,
-                      height: 192,
+                      height: 210,
                       decoration: BoxDecoration(
                         color: AppColors.bcg,
                         border: Border.all(color: Color(0XFFD0D5DD), width: 1),
@@ -55,14 +56,7 @@ class AllTicketsScreen extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Container(
-                                padding: EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Color(0XFFEAECF5),
-                                ),
-                                child: Icon(Icons.menu, size: 20),
-                              ),
+                              CustomBackButton(),
                               SvgPicture.asset(
                                 'lib/assets/images/logo.svg',
                                 width: screenWidth * 0.45,
