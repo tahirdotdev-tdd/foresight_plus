@@ -12,6 +12,7 @@ class SubmitButton extends StatefulWidget {
 class _TicketButtonOneState extends State<SubmitButton>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  // ignore: unused_field
   late Animation<Color?> _colorAnimation;
 
   @override
